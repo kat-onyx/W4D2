@@ -1,0 +1,50 @@
+<% if action == :new %>
+  <% action_url = cats_url %>
+  <% submit_value = 'Add new cat' %>
+<% else %>
+  <% action_url = cat_url(cat) %>
+  <% submit_value = 'Edit cat' %>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="Patch">
+  <% end %>
+
+
+  <label>
+    Name:
+    <input type="text" name="cat[name]" value="<% cat.name %>">
+  </label>
+  <br>
+  <label>
+    Birthday:
+    <input type="date" name="cat[birth_date]" value="<% cat.birth_date %>">
+  </label>
+  <br>
+
+  <label>
+    Please select a color:
+    <select type="text" name="cat[color]" value="<% cat.color %>">
+      <option value="Brown">Brown</option>
+      <option value="Blue">Blue</option>
+      <option value="Hairless">Hairless</option>
+    </select>
+  </label>
+  <br>
+
+  <label>
+    Cat's sex:
+    <input type="radio" name="cat[sex]" value="M"> Male
+    <input type="radio" name="cat[sex]" value="F"> Female
+  </label>
+  <br>
+
+  <label>
+    description:
+    <!-- <input type="textarea" name="cat[description]" value=""> -->
+    <textarea name="cat[description]" rows="8" cols="80" value="<% cat.description %>"></textarea>
+  </label>
+
+  <input type="submit" name="" value="<% submit_value %>">
+</form>

@@ -1,1 +1,16 @@
 All the cats!
+<a href="<%= new_cat_url %>">Create a new cat!</a>
+<ul>
+  <% @cats.each do |cat| %>
+  <li>
+    <ul>
+      <li>name: <%= cat.name %></li>
+      <li>birthday: <%= cat.birth_date %></li>
+      <li>color: <%= cat.color %></li>
+      <li>sex: <%= cat.sex %></li>
+      <li>description: <%= cat.description %></li>
+    </ul>
+    <br>
+  </li>
+  <% end %>
+</ul>
