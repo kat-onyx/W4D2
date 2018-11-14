@@ -15,7 +15,7 @@
 class Cat < ApplicationRecord
 
   validates :birth_date, :color, :name, :description, presence: true
-  validate :sex
+  validate :sex_validation
 
 
   has_many :cat_rental_requests,

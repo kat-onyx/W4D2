@@ -21,7 +21,7 @@ class CatRentalRequest < ApplicationRecord
     class_name: :Cat
 
   def overlapping_requests
-    CatRentalRequest.where("#{self.end_date} > start_date")
+    CatRentalRequest.where.not("#{self.end_date} > start_date")
 
   end
 
